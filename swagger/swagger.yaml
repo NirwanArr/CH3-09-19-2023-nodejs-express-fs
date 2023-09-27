@@ -1,0 +1,51 @@
+swagger: "2.0"
+info:
+  title: Tour API
+  description: |
+    This API is designed to facilitate Tour in companies. It provides features such as employee management, salary management, leave management, and others. The API is built using Node.js technology and MongoDB database. This documentation will provide information about the available endpoints in this API and how to use them.
+  version: 1.0.0
+basePath: /
+schemes:
+  - http
+  - https
+paths:
+  /api/v1/tours:
+    get:
+      summary: Return a list of tour.
+      description: |
+        Returns a tour with it's details.
+      tags:
+        - "Tours"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Create new tour
+      description: |
+        Create new tour and return new tour
+      produces:
+        - application/json
+      tags:
+        - "Tours"
+      parameters:
+        - name: body
+          in: body
+          description: Data for new tour
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Yogyakarta
+              rating:
+                type: number
+                example: 5
+              price:
+                type: number
+                example: 2000
+      responses:
+        201:
+          description: OK

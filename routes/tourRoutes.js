@@ -4,7 +4,7 @@ const tourController = require("../controllers/toursController.js");
 
 const router = express.Router();
 
-router.param("id", tourController.checkId);
+// router.param("id", tourController.checkId);
 
 router
   .route("/")
@@ -13,6 +13,17 @@ router
     tourController.checkBody,
     tourController.createTour
   );
+
+router
+  .route("/model")
+  .get(tourController.getAllToursModels)
+  .post(tourController.createTourModel);
+
+router
+  .route("/model/:id")
+  .get(tourController.getTourByIdModel)
+  .patch(tourController.editTourModels)
+  .delete(tourController.removeTourModel);
 
 router
   .route("/:id")
